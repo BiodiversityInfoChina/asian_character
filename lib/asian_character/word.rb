@@ -12,11 +12,14 @@ module AsianCharacter
         @cache= true
         return @pinyin 
       end
-        @cache = false
-      res = RestClient.get('http://chinese.biodinfo.org/'\
-                           'ChineseCharactorWebService.asmx/'\
-                           'GetWordPinyin?word=' + URI.escape(@word) + '&psd=1')
-      res=res.match(/>([a-z0-9]+)<\/string>/m)
+      @cache = false
+      url = 'http://chinese.biodinfo.org/'\
+            'ChineseCharactorWebService.asmx/'\
+            'GetWordPinyin?word=' + 
+             URI.escape(@word) + '&psd=1'
+      res = RestClient.get(url)
+      res.gsub!(/\s/, ' ')
+      res=res.match(%r|<string.*>([a-z0-9]+)</string>|)
       @pinyin = res ? res[1].strip : nil 
     end
     
@@ -26,11 +29,13 @@ module AsianCharacter
         return @sound_url 
       end
       @cache = false
-      res = RestClient.get('http://chinese.biodinfo.org/'\
-                           'ChineseCharactorWebService.asmx/'\
-                           'GetWordPinyinMP3?word=' + 
-                            URI.escape(@word) + '&psd=1')
-      res=res.match(/>(.+)<\/string>/m)
+      url = 'http://chinese.biodinfo.org/'\
+             'ChineseCharactorWebService.asmx/'\
+             'GetWordPinyinSoundMP3?word=' + 
+              URI.escape(@word) + '&psd=1'
+      res = RestClient.get(url)
+      res.gsub!(/\s/, ' ')
+      res=res.match(%r|<string.*>\s*(.+)\s*</string>|)
       @sound_url = res ? res[1].strip : nil 
     end
   end

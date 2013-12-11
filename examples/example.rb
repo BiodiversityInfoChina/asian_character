@@ -8,11 +8,9 @@ end
 
 post '/pinyin' do
   @chars = params[:characters]
-#  @res = RestClient.get('http://chinese.biodinfo.org/ChineseCharactorWebService.asmx?op=GetWordPinyin&word=' + URI.escape(@chars) + '&psd=1')
   res = RestClient.get('http://chinese.biodinfo.org/ChineseCharactorWebService.asmx/GetWordPinyin?word=' + URI.escape(@chars) + '&psd=1')
   res=res.match(/>([a-z0-9]+)<\/string>/)
   @pinyin = res ? res[1] : nil 
-#  require 'ruby-debug'; debugger
   haml :pinyin
 end
 
@@ -48,12 +46,14 @@ __END__
   %input{ type: 'submit' }
   
 @@pinyin
-pinyin will be here:
+%p 
+  pinyin will be here:
   = @chars
 %p pinyin: #{@pinyin}
 
 @@audio
-Audio will be here:
+%p 
+  Audio will be here:
   =@chars
 %audio{controls: true}
   %source{src: @audio}

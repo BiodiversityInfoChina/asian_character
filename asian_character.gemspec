@@ -6,10 +6,10 @@ require 'asian_character/version'
 Gem::Specification.new do |spec|
   spec.name          = "asian_character"
   spec.version       = AsianCharacter::VERSION
-  spec.authors       = ["Dmitry Mozzherin"]
-  spec.email         = ["dmozzherin@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.authors       = ["Jiangning Wang"]
+  spec.email         = ["wangjn1982@163.com"]
+  spec.description   = %q{Provides some functions of Chinese}
+  spec.summary       = %q{Provides some functions of Chinese}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "rest_client", "~> 1.6"
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
 end

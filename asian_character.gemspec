@@ -21,5 +21,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rest_client", "~> 1.6"
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake", "~> 10.1"
-  spec.add_development_dependency "rpec", "~> 2.14"
+  spec.add_development_dependency "rspec", "~> 2.14"
 end

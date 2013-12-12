@@ -6,8 +6,8 @@ require 'asian_character/version'
 Gem::Specification.new do |spec|
   spec.name          = "asian_character"
   spec.version       = AsianCharacter::VERSION
-  spec.authors       = ["Jiangning Wang"]
-  spec.email         = ["wangjn1982@163.com"]
+  spec.authors       = ["Jiangning Wang", "Dmitry Mozzherin"]
+  spec.email         = ["wangjn1982@163.com", "dmozzherin@gmail.com"]
   spec.description   = %q{Provides some functions of Chinese}
   spec.summary       = %q{Provides some functions of Chinese}
   spec.homepage      = ""

@@ -1,6 +1,6 @@
 # AsianCharacter
 
-TODO: Write a gem description
+This gem provides prononciation and pinyin transcription for Chinese characters 
 
 ## Installation
 
@@ -18,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'asian_character'
+
+    word = AsianCharacter::Word.new('谢谢')
+
+    #to get pinyin transcription
+    pinyin = word.pinyin #returns xie4xie4
+
+    #to get a url to mp3 audio sound
+    audio_url = word.sound_url
 
 ## Contributing
 
